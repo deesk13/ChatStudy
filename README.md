@@ -1,4 +1,7 @@
 # Ex. No:1b 			Study of Client Server Chat Applications
+# NAME: DEVA DHARSHINI I
+
+# REGISTER NO: 212223240026
 
 ## Aim: 
 To perform a study on Client Server Chat Applications
@@ -72,6 +75,43 @@ User authentication mechanisms are essential to ensure secure and authorized acc
 Client-server chat applications are versatile tools that facilitate real-time communication between users over a network. They incorporate various components, including server-side and client-side elements, and must consider factors such as security, scalability, and concurrency. As technology continues to advance, client-server chat applications remain integral for collaborative communication in various domains.
 
 Client-server chat applications are foundational to real-time communication over networks. They incorporate principles of socket programming, communication protocols, and security mechanisms to provide a seamless user experience. Understanding the basics of client-server chat applications is essential for developers involved in networked application development, as they form the backbone of various collaborative communication systems. As technology evolves, chat applications continue to adapt, incorporating new features and technologies to enhance user interaction and connectivity.
+# PROGRAM
+CLIENT
+```
+import socket
+s=socket.socket()
+s.bind(('localhost',8000))
+s.listen(5)
+c,addr=s.accept()
+size=int(input("Enter number of frames to send : "))
+l=list(range(size))
+s=int(input("Enter Window Size : "))
+st=0
+i=0
+while True:
+ while(i<len(l)):
+ st+=s
+ c.send(str(l[i:st]).encode())
+ ack=c.recv(1024).decode()
+ if ack:
+ print(ack)
+ i+=s
+```
+SERVER
+```
+import socket
+s=socket.socket()
+s.connect(('localhost',8000))
+while True: 
+ print(s.recv(1024).decode())
+ s.send("acknowledgement recived from the server".encode())
+```
+# OUTPUT
+CLIENT
+![Screenshot 2024-05-06 155648](https://github.com/deesk13/ChatStudy/assets/150927063/be38c84b-52d9-402e-9105-b6a4e1ac6d67)
+
+SERVER
+![Screenshot 2024-05-06 155708](https://github.com/deesk13/ChatStudy/assets/150927063/0963f54c-6b46-4551-b901-3227a8adda99)
 
 
 ## Result:
